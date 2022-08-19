@@ -10,8 +10,8 @@ export class AppComponent {
   playerVars = {
     cc_lang_pref: 'en'
   };
+  ytEvent;
   private player;
-  private ytEvent;
 
   constructor() {}
   onStateChange(event) {

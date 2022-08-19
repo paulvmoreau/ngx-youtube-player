@@ -5,7 +5,7 @@
 
 # Install
 
-`npm i ngx-youtube-player`
+`npm i ngx-youtube-player-14`
 
 # Angular Youtube Player Component
 

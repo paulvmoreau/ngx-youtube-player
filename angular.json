@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ngx-youtube-player-project",
+            "outputPath": "dist/ngx-youtube-player-14",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -38,7 +38,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
@@ -57,18 +56,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ngx-youtube-player-project:build"
+            "browserTarget": "ngx-youtube-player-14:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ngx-youtube-player-project:build:production"
+              "browserTarget": "ngx-youtube-player-14:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ngx-youtube-player-project:build"
+            "browserTarget": "ngx-youtube-player-14:build"
           }
         },
         "test": {
@@ -102,7 +101,7 @@
         }
       }
     },
-    "ngx-youtube-player-project-e2e": {
+    "ngx-youtube-player-14-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -111,11 +110,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "ngx-youtube-player-project:serve"
+            "devServerTarget": "ngx-youtube-player-14:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "ngx-youtube-player-project:serve:production"
+              "devServerTarget": "ngx-youtube-player-14:serve:production"
             }
           }
         },
@@ -130,33 +129,33 @@
         }
       }
     },
-    "ngx-youtube-player": {
-      "root": "projects/ngx-youtube-player",
-      "sourceRoot": "projects/ngx-youtube-player/src",
+    "ngx-youtube-player-14": {
+      "root": "projects/ngx-youtube-player-14",
+      "sourceRoot": "projects/ngx-youtube-player-14/src",
       "projectType": "library",
       "prefix": "lib",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "tsConfig": "projects/ngx-youtube-player/tsconfig.lib.json",
-            "project": "projects/ngx-youtube-player/ng-package.json"
+            "tsConfig": "projects/ngx-youtube-player-14/tsconfig.lib.json",
+            "project": "projects/ngx-youtube-player-14/ng-package.json"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/ngx-youtube-player/src/test.ts",
-            "tsConfig": "projects/ngx-youtube-player/tsconfig.spec.json",
-            "karmaConfig": "projects/ngx-youtube-player/karma.conf.js"
+            "main": "projects/ngx-youtube-player-14/src/test.ts",
+            "tsConfig": "projects/ngx-youtube-player-14/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-youtube-player-14/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/ngx-youtube-player/tsconfig.lib.json",
-              "projects/ngx-youtube-player/tsconfig.spec.json"
+              "projects/ngx-youtube-player-14/tsconfig.lib.json",
+              "projects/ngx-youtube-player-14/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -166,5 +165,5 @@
       }
     }
   },
-  "defaultProject": "ngx-youtube-player-project"
+  "defaultProject": "ngx-youtube-player-14"
 }

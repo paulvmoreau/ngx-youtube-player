@@ -23,7 +23,7 @@ export const defaultSizes = {
   providedIn: 'root'
 })
 export class YoutubePlayerService {
-  api: ReplaySubject<YT.Player>;
+  api: ReplaySubject<any>;
 
   private ytApiLoaded = false;
 
@@ -76,11 +76,8 @@ export class YoutubePlayerService {
     // because YT is not loaded yet 1 is used - YT.PlayerState.PLAYING
     const isPlayerReady: any = player && player.getPlayerState;
     const playerState = isPlayerReady ? player.getPlayerState() : {};
-    const isPlayerPlaying = isPlayerReady
-      ? playerState !== YouTubeRef().PlayerState.ENDED &&
-        playerState !== YouTubeRef().PlayerState.PAUSED
+    return isPlayerReady ? playerState !== YouTubeRef().PlayerState.ENDED && playerState !== YouTubeRef().PlayerState.PAUSED
       : false;
-    return isPlayerPlaying;
   }
 
   createPlayer(
@@ -132,11 +129,10 @@ export class YoutubePlayerService {
   }
 
   private createApi() {
-    const onYouTubeIframeAPIReady = () => {
+    win()['onYouTubeIframeAPIReady'] = () => {
       if (win()) {
         this.api.next(YouTubeRef());
       }
     };
-    win()['onYouTubeIframeAPIReady'] = onYouTubeIframeAPIReady;
   }
 }

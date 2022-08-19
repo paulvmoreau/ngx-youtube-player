@@ -19,11 +19,11 @@
       "dom"
     ],
     "paths": {
-      "ngx-youtube-player": [
-        "dist/ngx-youtube-player"
+      "ngx-youtube-player-14": [
+        "dist/ngx-youtube-player-14"
       ],
-      "ngx-youtube-player/*": [
-        "dist/ngx-youtube-player/*"
+      "ngx-youtube-player-14/*": [
+        "dist/ngx-youtube-player-14/*"
       ]
     }
   }

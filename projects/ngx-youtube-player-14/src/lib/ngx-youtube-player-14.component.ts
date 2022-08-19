@@ -5,15 +5,13 @@ import {
   ElementRef,
   EventEmitter,
   Input,
-  OnChanges,
   Output,
   Renderer2,
-  SimpleChanges
 } from '@angular/core';
 import {
   YoutubePlayerService,
   defaultSizes
-} from './ngx-youtube-player.service';
+} from './ngx-youtube-player-14.service';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -22,7 +20,7 @@ import {
     <div id="yt-player-ngx-component"></div>
   `
 })
-export class YoutubePlayerComponent implements AfterContentInit {
+export class YoutubePlayer14Component implements AfterContentInit {
   @Input() videoId = '';
   @Input() height = defaultSizes.height;
   @Input() width = defaultSizes.width;
@@ -68,10 +66,6 @@ export class YoutubePlayerComponent implements AfterContentInit {
   }
 
   getProtocol() {
-    const hasWindow = window && window.location;
-    const protocol = hasWindow
-      ? window.location.protocol.replace(':', '')
-      : 'http';
-    return protocol;
+     return window?.location ? window.location.protocol.replace(':', '') : 'http';
   }
 }

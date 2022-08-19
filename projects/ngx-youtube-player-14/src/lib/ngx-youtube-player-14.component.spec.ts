@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { YoutubePlayerComponent } from './ngx-youtube-player.component';
+import { YoutubePlayer11Component } from './ngx-youtube-player.component';
 
 describe('NgxYoutubePlayerComponent', () => {
-  let component: YoutubePlayerComponent;
-  let fixture: ComponentFixture<YoutubePlayerComponent>;
+  let component: YoutubePlayer11Component;
+  let fixture: ComponentFixture<YoutubePlayer11Component>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [YoutubePlayerComponent]
+      declarations: [YoutubePlayer11Component]
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(YoutubePlayerComponent);
+    fixture = TestBed.createComponent(YoutubePlayer11Component);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
