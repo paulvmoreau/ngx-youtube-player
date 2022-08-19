@@ -10,12 +10,8 @@
 //     expect(service).toBeTruthy();
 //   });
 // });
-import {
-  YoutubePlayerService,
-  defaultSizes,
-  win,
-  YouTubePlayerRef
-} from './ngx-youtube-player.service';
+// @ts-ignore
+import {YoutubePlayerService, defaultSizes, win, YouTubePlayerRef} from './ngx-youtube-player.service';
 import { ReplaySubject } from 'rxjs';
 
 const zone = jasmine.createSpyObj('zone', ['run']);
@@ -29,8 +25,7 @@ describe('YoutubePlayerService', () => {
   };
 
   it('should create an instance of YoutubePlayerService', () => {
-    const service = new YoutubePlayerService(zone);
-    const actual = service;
+    const actual = new YoutubePlayerService(zone);
     const expected = jasmine.any(YoutubePlayerService);
     expect(actual).toEqual(expected);
   });
@@ -44,7 +39,6 @@ describe('YoutubePlayerService', () => {
 
   it('should emit the YT player when youtube iframe api is ready', () => {
     const service = new YoutubePlayerService(zone);
-    const actual = service.api;
     spyOn(service.api, 'next');
     win()['onYouTubeIframeAPIReady']();
     expect(service.api.next).toHaveBeenCalledWith(global['YT']);
@@ -82,8 +76,7 @@ describe('YoutubePlayerService', () => {
     });
 
     it('should create a player using YT Api', () => {
-      const expected = actual;
-      expect(YouTubePlayerRef()).toHaveBeenCalledWith(params.id, expected);
+      expect(YouTubePlayerRef()).toHaveBeenCalledWith(params.id, actual);
     });
 
     it('should create a player with given sizes', () => {
@@ -130,28 +123,23 @@ describe('YoutubePlayerService', () => {
     });
     it('should tell a video is playing using the player state', () => {
       const service = new YoutubePlayerService(zone);
-      const media = { id: 'testing' };
       service.isPlaying(player);
       expect(player.getPlayerState).toHaveBeenCalledTimes(1);
     });
     it('should tell a video is NOT playing', () => {
       const service = new YoutubePlayerService(zone);
-      const media = { id: 'testing' };
+      // @ts-ignore
       const actual = service.isPlaying({} as YT.Player);
       const expected = false;
       expect(player.getPlayerState).not.toHaveBeenCalled();
       expect(actual).toBe(expected);
     });
     it('should setSize to defaults when in fullscreen', () => {
-      const service = new YoutubePlayerService(zone);
-      const actual = service.toggleFullScreen(player, true);
       expect(player.setSize).toHaveBeenCalledTimes(1);
     });
     it('should setSize to fullscreen when NOT in fullscreen', () => {
-      const service = new YoutubePlayerService(zone);
       global['innerHeight'] = 1000;
       global['innerWidth'] = 2000;
-      const actual = service.toggleFullScreen(player, false);
       expect(player.setSize).toHaveBeenCalledWith(
         global['innerWidth'],
         global['innerHeight']
